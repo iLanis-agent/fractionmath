@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraction Math - app</title>
+<style>
+  :root { --accent:#2f7a3a; --ink:#0f2614; --paper:#f3faf4; --soft:#dff0e1; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2rem 1.2rem; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { margin:1rem 0 1.4rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  p.note { font-size:.9rem; margin-bottom:.4rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input, select { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #a9d2ae; border-radius:6px; background:#fff; color:var(--ink); }
+  .row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.6rem; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #a9d2ae; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; }
+  .out.err { border-color:#b03030; color:#8a1f1f; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#4f8057; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fraction Math</h1>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    This page works out fractions, mixed numbers and decimals exactly from the whole numbers you type. It does not know how a class, recipe or specification wants an answer rounded or written. Check that where it applies.
+  </div>
+
+  <div class="panel">
+    <h2>The op truth</h2>
+    <p class="note">Two fractions and one operation, reduced. Whole numbers only, denominators at least 1.</p>
+    <div class="row2">
+      <div><label for="o-n1">First numerator</label><input id="o-n1" type="number" step="1" value="3"></div>
+      <div><label for="o-d1">First denominator</label><input id="o-d1" type="number" step="1" value="4"></div>
+      <div><label for="o-n2">Second numerator</label><input id="o-n2" type="number" step="1" value="5"></div>
+      <div><label for="o-d2">Second denominator</label><input id="o-d2" type="number" step="1" value="6"></div>
+    </div>
+    <label for="o-op">Operation</label>
+    <select id="o-op"><option value="add" selected>plus</option><option value="subtract">minus</option><option value="multiply">times</option><option value="divide">divided by</option></select>
+    <div class="out" id="o-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The mixed truth</h2>
+    <p class="note">A whole number plus a fraction, as one fraction.</p>
+    <div class="row">
+      <div><label for="m-w">Whole part</label><input id="m-w" type="number" step="1" value="2"></div>
+      <div><label for="m-n">Numerator</label><input id="m-n" type="number" step="1" value="3"></div>
+      <div><label for="m-d">Denominator</label><input id="m-d" type="number" step="1" value="4"></div>
+    </div>
+    <div class="out" id="m-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The decimal truth</h2>
+    <p class="note">A decimal written out as the exact fraction it names. Up to 12 digits on each side of the point.</p>
+    <div class="row2">
+      <div><label for="d-t">Decimal</label><input id="d-t" type="text" step="1" value="0.375"></div>
+      <div></div>
+    </div>
+    <div class="out" id="d-out"></div>
+  </div>
+
+  <footer>Fraction Math is exact arithmetic over the numbers you enter. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  const num = (id) => Number(document.getElementById(id).value);
+  const list = (id) => document.getElementById(id).value.split(/[\s,]+/).filter((t) => t !== "").map(Number);
+  function show(id, fn) {
+    const out = document.getElementById(id);
+    try { out.textContent = fn(); out.classList.remove("err"); }
+    catch (e) { out.textContent = e.message; out.classList.add("err"); }
+  }
+  function recalc() {
+    show("o-out", () => opTruth(num("o-n1"), num("o-d1"), num("o-n2"), num("o-d2"), document.getElementById("o-op").value));
+    show("m-out", () => mixedTruth(num("m-w"), num("m-n"), num("m-d")));
+    show("d-out", () => decimalTruth(document.getElementById("d-t").value));
+  }
+  document.querySelectorAll("input, select").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
