@@ -1,0 +1,502 @@
+[
+ {
+  "fn": "opTruth",
+  "args": [
+   3,
+   4,
+   5,
+   6,
+   "add"
+  ],
+  "expected": "3/4 plus 5/6 is 19/12 (1 7/12 as a mixed number), about 1.5833."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   2,
+   1,
+   2,
+   "add"
+  ],
+  "expected": "1/2 plus 1/2 is 1."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   3,
+   1,
+   6,
+   "add"
+  ],
+  "expected": "1/3 plus 1/6 is 1/2, exactly 0.5."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   2,
+   1,
+   3,
+   "subtract"
+  ],
+  "expected": "1/2 minus 1/3 is 1/6, about 0.1667."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   3,
+   1,
+   2,
+   "subtract"
+  ],
+  "expected": "1/3 minus 1/2 is -1/6, about -0.1667."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   2,
+   1,
+   2,
+   "subtract"
+  ],
+  "expected": "1/2 minus 1/2 is 0."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   2,
+   3,
+   3,
+   4,
+   "multiply"
+  ],
+  "expected": "2/3 times 3/4 is 1/2, exactly 0.5."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   6,
+   8,
+   0,
+   5,
+   "multiply"
+  ],
+  "expected": "6/8 times 0/5 is 0."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   3,
+   4,
+   3,
+   8,
+   "divide"
+  ],
+  "expected": "3/4 divided by 3/8 is 2."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   7,
+   1,
+   7,
+   "divide"
+  ],
+  "expected": "1/7 divided by 1/7 is 1."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   0,
+   5,
+   3,
+   4,
+   "divide"
+  ],
+  "expected": "0/5 divided by 3/4 is 0."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   1000000,
+   1,
+   1000000,
+   "multiply"
+  ],
+  "expected": "1/1000000 times 1/1000000 is 1/1000000000000, a value smaller than 0.0001 in size."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   999999,
+   1000000,
+   999998,
+   999999,
+   "add"
+  ],
+  "expected": "999999/1000000 plus 999998/999999 is 1999996000001/999999000000 (1 999997000001/999999000000 as a mixed number), about 2."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   32,
+   0,
+   3,
+   "add"
+  ],
+  "expected": "1/32 plus 0/3 is 1/32, about 0.0313."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1000000,
+   1,
+   1000000,
+   1,
+   "multiply"
+  ],
+  "expected": "1000000/1 times 1000000/1 is 1000000000000."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   3,
+   5,
+   8,
+   "subtract"
+  ],
+  "expected": "1/3 minus 5/8 is -7/24, about -0.2917."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   1000000,
+   0,
+   1,
+   "add"
+  ],
+  "expected": "1/1000000 plus 0/1 is 1/1000000, a value smaller than 0.0001 in size."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   7,
+   2,
+   1,
+   4,
+   "add"
+  ],
+  "expected": "7/2 plus 1/4 is 15/4 (3 3/4 as a mixed number), exactly 3.75."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   5,
+   5,
+   1,
+   1,
+   "multiply"
+  ],
+  "expected": "5/5 times 1/1 is 1."
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   3,
+   4,
+   0,
+   5,
+   "divide"
+  ],
+  "expected": "ERR:cannot divide by a fraction equal to zero"
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   -1,
+   2,
+   1,
+   2,
+   "add"
+  ],
+  "expected": "ERR:first numerator must be a whole number from 0 to 1000000"
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   0,
+   1,
+   2,
+   "add"
+  ],
+  "expected": "ERR:first denominator must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   2,
+   1,
+   2.5,
+   "add"
+  ],
+  "expected": "ERR:second denominator must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1,
+   2,
+   1,
+   2,
+   "power"
+  ],
+  "expected": "ERR:operation must be add, subtract, multiply or divide"
+ },
+ {
+  "fn": "opTruth",
+  "args": [
+   1000001,
+   2,
+   1,
+   2,
+   "add"
+  ],
+  "expected": "ERR:first numerator must be a whole number from 0 to 1000000"
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   2,
+   3,
+   4
+  ],
+  "expected": "2 3/4 is 11/4, exactly 2.75."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   0,
+   1,
+   3
+  ],
+  "expected": "0 1/3 is 1/3, about 0.3333."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   2,
+   7,
+   4
+  ],
+  "expected": "2 7/4 is 15/4 (3 3/4 as a mixed number), exactly 3.75."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   5,
+   0,
+   8
+  ],
+  "expected": "5 0/8 is 5."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   0,
+   0,
+   5
+  ],
+  "expected": "0 0/5 is 0."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   1,
+   1,
+   8
+  ],
+  "expected": "1 1/8 is 9/8, exactly 1.125."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   1000000,
+   999999,
+   1000000
+  ],
+  "expected": "1000000 999999/1000000 is 1000000999999/1000000, about 1000001."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   3,
+   6,
+   8
+  ],
+  "expected": "3 6/8 is 15/4 (3 3/4 as a mixed number), exactly 3.75."
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   2,
+   3,
+   0
+  ],
+  "expected": "ERR:denominator must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   -1,
+   1,
+   2
+  ],
+  "expected": "ERR:whole part must be a whole number from 0 to 1000000"
+ },
+ {
+  "fn": "mixedTruth",
+  "args": [
+   1,
+   1.5,
+   2
+  ],
+  "expected": "ERR:numerator must be a whole number from 0 to 1000000"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "0.375"
+  ],
+  "expected": "0.375 is exactly 3/8."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "3.5"
+  ],
+  "expected": "3.5 is exactly 7/2 (3 1/2 as a mixed number)."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "-2.5"
+  ],
+  "expected": "-2.5 is exactly -5/2 (-2 1/2 as a mixed number)."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "5"
+  ],
+  "expected": "5 is exactly 5."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "5.000"
+  ],
+  "expected": "5.000 is exactly 5."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "0.333"
+  ],
+  "expected": "0.333 is exactly 333/1000."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "-0.75"
+  ],
+  "expected": "-0.75 is exactly -3/4."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "0"
+  ],
+  "expected": "0 is exactly 0."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "-0.0"
+  ],
+  "expected": "-0.0 is exactly 0."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "0.000000000001"
+  ],
+  "expected": "0.000000000001 is exactly 1/1000000000000."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "999999999999.999999999999"
+  ],
+  "expected": "999999999999.999999999999 is exactly 999999999999999999999999/1000000000000 (999999999999 999999999999/1000000000000 as a mixed number)."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   " 1.25 "
+  ],
+  "expected": "1.25 is exactly 5/4 (1 1/4 as a mixed number)."
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   ""
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   ".5"
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "1/2"
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "1.2.3"
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   "1.0000000000001"
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ },
+ {
+  "fn": "decimalTruth",
+  "args": [
+   5
+  ],
+  "expected": "ERR:enter a decimal number such as 0.375 or -2.5 with up to 12 digits on each side of the point"
+ }
+]
